@@ -27,7 +27,13 @@ class DoublyLinkedList:
     the old head node's previous pointer accordingly.
     """
     def add_to_head(self, value):
-        pass
+        new_node = ListNode(value, None, self.head)
+        if self.head:
+            self.head.prev = new_node
+        if self.tail == None:
+            self.tail = new_node
+        self.head = new_node
+        self.length += 1
         
     """
     Removes the List's current head node, making the
