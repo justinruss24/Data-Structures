@@ -9,7 +9,6 @@ This part of the project comprises two days:
 2. Implement the `in_order_print`, `bft_print`, and `dft_print` methods
    on the BSTNode class.
 """
-
 from queue import Queue
 from stack import Stack
 
@@ -41,8 +40,9 @@ class BSTNode:
             else:
                 self.right = BSTNode(value)
 
-    # Return True if the tree contains the value
+# Return True if the tree contains the value
     # False if it does not
+
     def contains(self, target):
         # Case 1: self.value is equal to the target
         if self.value == target:
@@ -91,7 +91,7 @@ class BSTNode:
     # in an iterative breadth first traversal
 
     def bft_print(self, node):
-        q = Queue()  # q as in Queue...
+        q = Queue()  
         q.enqueue(self)
         while q.size > 0:
             node = q.dequeue()
@@ -114,21 +114,23 @@ class BSTNode:
                 stack.push(node.right)
             print(node.value)
 
+
     # Stretch Goals -------------------------
     # Note: Research may be required
 
     # Print Pre-order recursive DFT
-    def pre_order_dft(self):
+    def pre_order_print(self):
         pass
 
     # Print Post-order recursive DFT
-    def post_order_dft(self):
+    def post_order_print(self):
         pass
+
 
 """
 This code is necessary for testing the `print` methods
 """
-bst = BinarySearchTree(1)
+bst = BSTNode(1)
 
 bst.insert(8)
 bst.insert(5)
@@ -138,13 +140,13 @@ bst.insert(3)
 bst.insert(4)
 bst.insert(2)
 
-bst.bft_print()
-bst.dft_print()
+bst.bft_print(bst)
+bst.dft_print(bst)
 
 print("elegant methods")
 print("pre order")
-bst.pre_order_dft()
+bst.pre_order_print()
 print("in order")
-bst.in_order_dft()
+bst.in_order_print(bst)
 print("post order")
-bst.post_order_dft()  
+bst.post_order_print()
